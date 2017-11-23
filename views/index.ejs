@@ -88,7 +88,6 @@
 			    </form>
 			    <!-- registration form -->
 			    <form class = "register-form" action="/registerForm" method="post">
-					<br> <br> <br> <br> <br> <br><br> <br><br> <br>
 			    <h1>REGISTER</h1>
                    <div class="form-group">
 					<div class="row">
@@ -97,6 +96,7 @@
 					</div>
                         <input type="email" class="form-control" name="email" placeholder="Email Address" required>
                         <input type="password" class="form-control" name="password" placeholder="Password" required>
+                        <input type="password" class="form-control" name="password" placeholder="Confirm your Password" required>
                         <input type="text" class="form-control" name="child_name" placeholder="Child's Name" required>
 						<input type="text" class="form-control" name="relationship" placeholder="Relationship to child (Mom, Dad, etc.)" required>
 						<br>         
@@ -146,7 +146,7 @@
 		var pullRegistration = ()=>{
 			$('.guest-form').hide('slow');
 			$('.login-form').hide('slow');
-			$('.guest-menu').animate({height: "600px", top: "-170px"}, "slow")
+			$('.guest-menu').animate({height: "600px", top: "-100px"}, "slow")
 			$('.register-form').animate({height: "toggle", opacity: "toggle"}, "slow",()=>{
 				console.log('produce register form');
 			});
