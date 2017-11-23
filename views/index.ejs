@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Village: Login Page</title>
+	<!-- Link different style sheets + javascript -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel='stylesheet' href='./stylesheets/style.css' />
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<!-- Start Favicon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="images/favicons.ico/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="images/favicons.ico/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/favicons.ico/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/favicons.ico/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/favicons.ico/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/favicons.ico/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/favicons.ico/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/favicons.ico/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicons.ico/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="images/favicons.ico/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicons.ico/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/favicons.ico/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicons.ico/favicon-16x16.png">
+	<link rel="manifest" href="images/favicons.ico/manifest.json">
+	<!-- End Favicon -->
+
+	<!-- Start Metatags -->
+
+	<!-- Favicon Meta Tags -->
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="images/favicons.ico/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<!-- End Favicon Meta tags -->
+	<meta name="description" content=" The Companion Bot for your Child ">		
+	<meta name="keywords" content="village, villag, boys, boy, children, girl, child, girls, chat, bot, robot, chatbot, hackathon, goodienation, aasim, nathanial, alex, tai, audrey"/>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+    	var onLoad;
+		onLoad = <%- locals.onLoad %>
+		console.log(onLoad)
+    </script>
+	<!-- End Meta tags -->
+</head>
+
+	<!-- Start Navigation -->
+	<div class="container navbar navbar-fixed-top " style="width: 100%; background-color: rgb(16,133,224);" >
+			<br>  
+			<div class="row">
+				<a href="#"> <div class="col-xs-1 "> <img src="images/logoWhiteCrisp.png" style=" height: 45px;"> </div> </a>
+				<div class="col-xs-10">
+					<center>
+						 <h3 class=""> <a class="brand align-middle" href="#" style="color: white;">Village</a> </h3> 
+					</center>
+				</div>
+				<!-- If the 'LogOut' button size is too small, just change the width and height below -->
+				<a href="index.html"> <div class="col-xs-1 pull-right "> <img src="images/logoutWhite.png" style="height: 30px; width: 30px; margin-top: 15px;"> </div> </a>
+			</div>
+		</div>
+	<!-- End Navigation -->
+<body>
+	<div class = "page-wrapper">
+    <div class="container">
+	<div class="content">
+    <br> <br>
+    <div class="col-xs-offset-6 guest-menu">
+        <div class="col-xs-12 box-content text-center">
+				<!-- login form -->
+			<div class="form">
+				<form class="login-form" method = "post" action = "/loginForm">
+					<h1>Welcome Back</h1>
+			      <input type="email" placeholder="name" name = "email" required/>
+			      <input type="password" placeholder="password" name = "password" required/>
+			      <button type = "submit">Sign In</button>
+			      <p class="left col-xs-4 guest_page"><a href="#">Back to Welcome Page</a></p>
+			    	<p class="right col-xs-offset-6 register_page"><a href="#">Register as New</a></p>
+			    </form>
+			    <!-- form everyone sees -->
+			    <form class="guest-form" method = "post" action="/search">
+			    	<h1 id = "guest">Welcome to Village!</h1>
+			      <div class = "row guest-2">
+			    	<p class="left login_page"><a href="#" class = "btn btn-primary">Login</a> </p>
+			      <p class="register_page"> <a href="#" class="btn btn-warning"> Not registered? Create an account</a></p>
+			  	</div>
+			    </form>
+			    <!-- registration form -->
+			    <form class = "register-form" action="/registerForm" method="post">
+					<br> <br> <br> <br> <br> <br><br> <br><br> <br>
+			    <h1>REGISTER</h1>
+                   <div class="form-group">
+					<div class="row">
+						<input class="input" type="text"  style="width: 49%; font-size: 20px;" name="first_name" placeholder = "First Name" required>
+						<input class="input" type="text" style="width: 49%; font-size: 20px;" name="last_name" placeholder = "Last Name" required>
+					</div>
+                        <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+                        <input type="password" class="form-control" name="password" placeholder="Password" required>
+                        <input type="text" class="form-control" name="child_name" placeholder="Child's Name" required>
+						<input type="text" class="form-control" name="relationship" placeholder="Relationship to child (Mom, Dad, etc.)" required>
+						<br>         
+						<p class="go-to-second-register-form col-xs-12 text-center">
+                   		<button type = "submit">Register</button>
+                   		<p class="guest_page"> <a href="#" class="btn btn-warning">Back to Welcome page</a></p>
+                    </div>
+				</form>
+				<!-- second registration form -->
+			    <form class = "register-form-2" action="#" method="post">
+						<br> <br> <br> <br> <br> <br><br> <br><br> <br>
+						<h1>REGISTER</h1>
+						   <div class="form-group">
+							   	<p style="color: white; font-size: 24px;"> HI NAME </p>
+								<input type="text" class="form-control" name="childsName" placeholder="Enter your login name">
+								<input type="password" class="form-control" name="password" placeholder="Password">
+								<br>         
+								<button id="form-group" class="form-control" type="submit">Sign Up!</button>
+								<p class="back-to-guest col-xs-12 text-center"><a href="#"> Back to guest page</a></p>
+							</div>
+				</form>
+            </div>
+		</div>
+	</div>
+</div>
+			
+	</div>
+
+
+	<script>
+		//pull login function
+		//	Hides the items with class 'register-form' slowly 
+		//	Shows the login form
+		var pullLogin = () =>{
+			$('.register-form').hide("slow");
+			$('.guest-form').toggle(()=>{
+	   		$('.login-form').animate({height: "toggle", opacity: "toggle"}, "slow",()=>{
+	   			console.log("now that effect has finished and callback function served we can move on")
+	   			});
+				   
+	   		});
+		};
+		//pull registration page function
+		//	Hides the items with class 'guest-form' slowly 
+		//	Hides the items with class 'register-form-2' slowly 
+		//	Shows the registering form (first one)
+		var pullRegistration = ()=>{
+			$('.guest-form').hide('slow');
+			$('.login-form').hide('slow');
+			$('.guest-menu').animate({height: "600px", top: "-170px"}, "slow")
+			$('.register-form').animate({height: "toggle", opacity: "toggle"}, "slow",()=>{
+				console.log('produce register form');
+			});
+		};
+		
+
+		//back to guest page
+		//	Hides the items with class 'register-form' slowly 
+		//	Hides the items with class 'register-form-2' slowly 
+		//	Shows the guest form (first one)
+		var toGuestPage = ()=>{
+			$('.login-form').hide();
+			$('.register-form').hide('slow');
+			$('.guest-menu').animate({height: "300px", top: "0"}, "slow")
+			$('.guest-form').animate({height: "toggle", opacity: "toggle"}, "slow",()=>{
+				console.log('welcome guest form has been served');
+			});
+		}
+
+
+
+		//the following are just the listeners
+		// to pull login page
+    	$('.login_page').click(()=>{
+    		pullLogin();
+    		console.log("login form will be produced")
+    	});
+		
+		// to pull registration page
+		$('.register_page').click(function(){
+			pullRegistration();
+			console.log("registration form should've been produced by now");
+		});
+		
+
+		// back to guest page
+		$('.guest_page').click(()=>{
+			toGuestPage();
+			console.log('back to guest page');
+		})
+
+		$(document).ready(()=>{
+			if (onLoad == 1) {
+				pullLogin();
+	
+    		swal({
+  				title: "You already have an account",
+  				text: "Please Login",
+  				button: "Thank you!",
+			});
+			}else if(onLoad == 2){
+				swal({
+  				title: "Attention!",
+  				text: "You must register first",
+  				icon: "error",
+  				button: "Thank you!",
+			});
+				pullRegistration()
+			}
+		})
+
+		//Prevents the user from scrolling.
+		var scrollEventHandler = function(){
+  				window.scroll(0, window.pageYOffset)
+		}
+		window.addEventListener("scroll", scrollEventHandler, false);
+		
+    </script>
+ </div>
+</body>
+</html>

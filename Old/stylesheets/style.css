@@ -1,0 +1,155 @@
+body {
+	position: relative;
+	padding: 30px;
+  	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background: url('../images/background.jpg');
+	background-size: cover;
+}
+
+
+.page-wrapper{
+    height: 95vh;
+   }
+
+.form .login-form {
+	position: inherit;
+	 display: none; 
+}
+.register-form-2 {
+	position: inherit;
+	display: none; 
+}
+
+.form .register-form{
+	position: relative;
+	 display: none;	 
+}
+
+
+.form a {
+  color: white;
+  text-decoration: none;
+}
+
+
+img{
+	width: 65px;
+	height: 65px;
+}
+
+
+.left, .right{
+	font-size: 18px;
+}
+
+.guest-menu{
+	position: relative;
+	z-index: 5;
+	height: 300px;
+	width: 50%;
+	margin: 10% auto;
+	background: rgba(0,0,0,0.5);
+	border-radius: 10px;
+}
+
+h1, h2, h4, h5{
+	text-align: center;
+	color: white;
+}
+
+p{
+	color: white;
+	font-size: 16px;
+	margin-top: 23px;
+}
+
+
+.box-content{
+	display: block;
+	text-align: center;
+}
+
+ .form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 14px;
+  box-sizing: border-box;
+  font-size: 21px;
+  text-align: center;
+}
+
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 14px;
+  color: #FFFFFF;
+  font-size: 21px;
+  -webkit-transition: all 0.5 ease;
+  transition: all 0.5 ease;
+  cursor: pointer;
+}
+
+.form button:hover,.form button:active,.form button:focus {
+  background: #16e11e;
+}
+
+.footer{
+	background-color: lightblue;
+	height: 22px;
+	width: 100%;
+	overflow: hidden;
+	position: fixed;
+	bottom:0;
+	left:0;
+	border-radius: 10px;
+}
+
+#guest{
+	margin-bottom: 40px;
+}
+
+.guest-2{
+	margin-top: 24px;
+}
+
+#form-group{
+	padding: 0px;
+}
+ #insurance{
+ 	width: 50%;
+    margin-bottom: 10px;
+ }
+
+.header{
+	width: 100%;
+	position: fixed;
+	font-size: 25px;
+	left: 20px;
+	top: 20px;
+	color: #00FBFF;
+	/*color: #4CAF50;*/
+	font-size: 31px;
+}
+
+
+#chatBubbles {
+    text-align:left;
+    
+    padding-top: 0px;
+    background:#fff;
+    border:1px solid #ACD8F0;
+
+}
+
+
+#chatBubbles {
+	background: url('../images/background.jpg');	
+}
