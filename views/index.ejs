@@ -65,11 +65,15 @@
     <div class="col-xs-offset-6 guest-menu">
         <div class="col-xs-12 box-content text-center">
 				<!-- login form -->
+				<!-- pattern attribute would allow us to validate input fields -->
+				<!-- with regular expressions -->
 			<div class="form">
 				<form class="login-form" method = "post" action = "/loginForm">
 					<h1>Welcome Back</h1>
-			      <input type="email" placeholder="email" name = "email" required/>
-			      <input type="password" placeholder="password" name = "password" required/>
+			      <input type="text" placeholder="email" name = "email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="email would be the following pattern something@something.something" required/>
+			      
+			      <input type="password" placeholder="password(5 characters or more)" name = "password" pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{4,}$" title="should have 1 lower case, 1 upper case, special character, 4 or more in length, example: d1D#" required/>
+
 			      <button type = "submit">Sign In</button>
 			      <p class="left col-xs-4 guest_page"><a href="#">Back to Welcome Page</a></p>
 			    	<p class="right col-xs-offset-6 register_page"><a href="#">Register with New Account</a></p>
@@ -188,7 +192,7 @@
 			if (onLoad == 1) {
 				pullLogin();
     		swal({
-  				title: "You already have an account",
+  				title: "Your Password does not match your email",
   				text: "Check Your Password and Try Again",
   				button: "Thank you!",
 			});

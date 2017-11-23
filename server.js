@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended: false})); //what is urlencoded ?
 //here is a key:value pair (declaring the engine I'd like to use for view)
 app.set('view engine', 'ejs');
 // setup database
-var db = mysql.createConnection({
+var db = mysql.createConnection({ 
     // connectionLimit: 50, maximum connections to databse
     host: '127.0.0.1',
     user: 'admin',
@@ -78,7 +78,6 @@ app.post('/loginForm', (req, res, next) => {
             console.log('something went wrong with this db request');
             return
         }else{
-            console.log('results from db: ', results) 
             //if results is an empty array - user is not in database and must register 
             if (results.length == 0){
                 //this is a new user - insert them - user must register
