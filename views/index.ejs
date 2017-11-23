@@ -53,7 +53,7 @@
 					</center>
 				</div>
 				<!-- If the 'LogOut' button size is too small, just change the width and height below -->
-				<a href="index.html"> <div class="col-xs-1 pull-right "> <img src="images/logoutWhite.png" style="height: 30px; width: 30px; margin-top: 15px;"> </div> </a>
+				<a href="#"> <div class="col-xs-1 guest_page"> <img src="images/logoutWhite.png" style="height: 30px; width: 30px; margin-top: 15px;"> </div> </a>
 			</div>
 		</div>
 	<!-- End Navigation -->
@@ -68,18 +68,18 @@
 			<div class="form">
 				<form class="login-form" method = "post" action = "/loginForm">
 					<h1>Welcome Back</h1>
-			      <input type="email" placeholder="name" name = "email" required/>
+			      <input type="email" placeholder="email" name = "email" required/>
 			      <input type="password" placeholder="password" name = "password" required/>
 			      <button type = "submit">Sign In</button>
 			      <p class="left col-xs-4 guest_page"><a href="#">Back to Welcome Page</a></p>
-			    	<p class="right col-xs-offset-6 register_page"><a href="#">Register as New</a></p>
+			    	<p class="right col-xs-offset-6 register_page"><a href="#">Register with New Account</a></p>
 			    </form>
 			    <!-- form everyone sees -->
 			    <form class="guest-form" method = "post" action="/search">
 			    	<h1 id = "guest">Welcome to Village!</h1>
 			      <div class = "row guest-2">
 			    	<p class="left login_page"><a href="#" class = "btn btn-primary">Login</a> </p>
-			      <p class="register_page"> <a href="#" class="btn btn-warning"> Not registered? Create an account</a></p>
+			      <p class="register_page"> <a href="#" class="btn btn-warning"> New Comer? Create an account</a></p>
 			  	</div>
 			    </form>
 			    <!-- registration form -->
@@ -187,17 +187,15 @@
 		$(document).ready(()=>{
 			if (onLoad == 1) {
 				pullLogin();
-	
     		swal({
   				title: "You already have an account",
-  				text: "Please Login",
+  				text: "Check Your Password and Try Again",
   				button: "Thank you!",
 			});
 			}else if(onLoad == 2){
 				swal({
   				title: "Attention!",
   				text: "You must register first",
-  				icon: "error",
   				button: "Thank you!",
 			});
 				pullRegistration()

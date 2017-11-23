@@ -53,13 +53,11 @@ app.use((req, res, next) => { //logging info about date, location and method use
     });
     next();
 });
-//partials is a feature to plug in pieces of html into webpage in hbs
-//just created static path from header
 
 //creating static path from the root of our harddrive to public folder
 app.use(express.static(__dirname + '/public'));
 
-
+//the following to serve welcome page
 app.get('/', (req, res) => {
     console.log('someone came to our page')
     res.render('index', {
@@ -73,28 +71,40 @@ app.post('/loginForm', (req, res, next) => {
     var email = req.body.email;
     var password = req.body.password;
     console.log("this is what received from form: ", email, password)
-    const selectQuery = `SELECT * FROM parents WHERE email = ? and pw = ?;`;
-    const childSelectQuery = `SELECT child_name FROM parents where email=?;`;
-    db.query(selectQuery, [email, password],(error, results)=>{
-        // var passwordsMatch = bcrypt.compareSync(password,results[0].pw)
-        //did this return a row? If so, the user already exists
-        if (results.length != 0){
-            console.log('users email is in database')
-            // res.send("User is in database")
-            
-            res.render('chatBot',{
-
-
-             });
+    //next we are going to get info from parents table with email and password
+    const selectQuery = `SELECT pw FROM parents WHERE email = ?;`;
+    db.query(selectQuery, [email],(error, results)=>{
+        if (error){
+            console.log('something went wrong with this db request');
+            return
         }else{
-            //this is a new user - insert them - user must register
-            // const insertQuery = `INSERT INTO users (first_name, last_name, email, pw, child_name, relationship, child_username, fav_color, submission_date) VALUES (DEFAULT, ?,?,?);`;
-            console.log('user must be inserted')
-            res.render('index', {
-                onLoad: 2
-                
-            })
-            
+            console.log('results from db: ', results) 
+            //if results is an empty array - user is not in database and must register 
+            if (results.length == 0){
+                //this is a new user - insert them - user must register
+                console.log('user must be inserted')
+                res.render('index', {
+                onLoad: 2   
+                })  
+            }else{
+                //results are NOT empty array
+                console.log('users email is in database')
+                var compareTo = results[0].pw;
+                console.log('retrieved hashed password from db:', compareTo)
+                //let's compare what we retrieved from DB to what user enetered
+                //the following returns 'true' if passwords match
+                var passwordMatch = bcrypt.compareSync(password, compareTo)
+                    if (passwordMatch){
+                        // res.send("User is in database")
+                        res.render('chatBot',{
+                        });
+                    }else{
+                        console.log('probably need to retype the password correctly')
+                        res.render('index', {
+                            onLoad: 1
+                        })
+                    }
+            } 
         }
     })
     // res.send('I got something here')
@@ -113,10 +123,11 @@ app.post('/registerForm', (req, res)=>{
     var favorite_color = req.body.favorite_color;
     var submission_date = req.body.submission_date;
     var hash = bcrypt.hashSync(password);
-    console.log(hash);
     console.log(first_name, last_name, email, password, child_name, relationship, child_username, favorite_color, submission_date)
     const selectQuery = `SELECT * FROM parents WHERE email = ?;`;
-    db.query(selectQuery, [email, last_name],(error, results)=>{
+    console.log(hash);
+    var dbQuery = db.query(selectQuery, [email, last_name],(error, results)=>{
+        console.log(dbQuery);
         //did this return a row? If so, the user already exists
         if (results.length != 0){
             console.log('user is in database, must login now')
@@ -128,10 +139,11 @@ app.post('/registerForm', (req, res)=>{
             console.log('user must be inserted')
             console.log('we have to render registration page for user to register')
             const insertQuery = `INSERT INTO parents (first_name, last_name, email, pw, child_name, relationship, child_username, fav_color, submission_date) VALUES (?,?,?,?,?,?,?,?,?);`;
-            db.query(insertQuery, [first_name, last_name, email, password, child_name, relationship, child_username, favorite_color, submission_date], (error)=>{
+            db.query(insertQuery, [first_name, last_name, email, hash, child_name, relationship, child_username, favorite_color, submission_date], (error)=>{
                 if (error){
                     console.log('error inserting into database')
-                    throw error;
+                    // throw error;
+                    return
                 }else{
                     console.log('succesful insertion into databse, next login')
                     // res.send("we just updated database");
