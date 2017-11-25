@@ -81,7 +81,7 @@ app.post('/loginForm', (req, res, next) => {
             //if results is an empty array - user is not in database and must register 
             if (results.length == 0){
                 //this is a new user - insert them - user must register
-                console.log('user must be inserted')
+                console.log('user must be inserted', results[0].pw)
                 res.render('index', {
                 onLoad: 2   
                 })  
@@ -93,12 +93,13 @@ app.post('/loginForm', (req, res, next) => {
                 //let's compare what we retrieved from DB to what user enetered
                 //the following returns 'true' if passwords match
                 var passwordMatch = bcrypt.compareSync(password, compareTo)
+                console.log(passwordMatch);
                     if (passwordMatch){
                         // res.send("User is in database")
                         res.render('chatBot',{
                         });
                     }else{
-                        console.log('probably need to retype the password correctly')
+                        console.log('passwords do not match retype the password correctly')
                         res.render('index', {
                             onLoad: 1
                         })
@@ -115,7 +116,7 @@ app.post('/registerForm', (req, res)=>{
     var first_name = req.body.first_name;
     var last_name = req.body.last_name;
     var email = req.body.email;
-    var password = req.body.password;
+    var password = req.body.password2;
     var child_name = req.body.child_name;
     var relationship = req.body.relationship;
     var child_username = req.body.child_username;
@@ -126,7 +127,7 @@ app.post('/registerForm', (req, res)=>{
     const selectQuery = `SELECT * FROM parents WHERE email = ?;`;
     console.log(hash);
     var dbQuery = db.query(selectQuery, [email, last_name],(error, results)=>{
-        console.log(dbQuery);
+        // console.log(dbQuery);
         //did this return a row? If so, the user already exists
         if (results.length != 0){
             console.log('user is in database, must login now')
@@ -146,9 +147,6 @@ app.post('/registerForm', (req, res)=>{
                 }else{
                     console.log('succesful insertion into databse, next login')
                     // res.send("we just updated database");
-                    swal("Good job!", "You are registered!", {
-                      button: "Welcome In!",
-                    });
                     res.render('chatBot',{
                         onLoad: 2
                     });
