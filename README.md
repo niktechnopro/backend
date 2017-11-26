@@ -51,7 +51,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 * **Alex Trautman** - *Initial work* - [trautmaa](https://github.com/trautmaa)
 * **Tai Chen** - *Initial work* - [mindlikewater](https://github.com/mindlikewater)
-* **Nikolas Bogucarskis** - *Initial work* - [niktechnopro](https://github.com/niktechnopro)
+* **Nikolas Bogucharsky** - *Initial work* - [niktechnopro](https://github.com/niktechnopro)
 * **Aasim Merchant** - *Initial work* - [135dragon](https://github.com/135dragon)
 * **Audrey Redman** - *Initial work* - [somebodie](https://github.com/somebodie)
 
