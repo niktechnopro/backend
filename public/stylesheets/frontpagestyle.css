@@ -41,10 +41,11 @@ font-size: 2em;
 .left-logo{
     height: 45px;
 }
+
 .nav_fixed{
     width: 100%;
     background-color: rgb(16,133,224);
-    height: 100px;
+    height: 80px;
 
 }
 .page-wrapper {

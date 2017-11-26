@@ -47,8 +47,8 @@ function addQuestion(parent, question, responseList){
 ////////////////////////////////// Create question flow
 
 
-// Create root with first question
-var root = new Node("Hi, Jack! What's up? Did something happen?");
+// Create root with first question;
+var root = new Node();
 
 // Add possible responses
 root.responses = ["yes", "no"];
