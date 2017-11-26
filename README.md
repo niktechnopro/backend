@@ -12,6 +12,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 MySQL
 Node.js
+Express.js
+JavaScript
+jQuery
 
 ```
 Give examples
@@ -39,7 +42,10 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Built With
 
-* [NodeJS](https://nodejs.org/) - The web framework used
+* [NodeJS](https://nodejs.org/) - backend enviroment
+* Express.js - webapplication framework for node.js
+* MySQL - relational database
+* HTML, CSS/Bootstrap, JS, jQuery
 
 ## Authors
 
