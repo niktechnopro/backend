@@ -14,7 +14,7 @@ const swal = require('sweetalert');
 // const apiai = require('apiai')('35c622ace8eb4059b215441b08650a5d')//apiai token
 // const geocode = require('./geocode/geocode.js'); //module to extract lat,lng from zip code
 const port = process.env.PORT || 3000; //configures to available port based on
-//enviroment variable or port 3000 by default
+//enviroment variable or port 3000 by default - for easier management
 
 var app = express();
 app.use(express.json());
