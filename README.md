@@ -15,7 +15,9 @@ Node.js
 Express.js
 JavaScript
 jQuery
-
+HTML
+CSS
+Bootstrap
 ```
 Give examples
 ```
