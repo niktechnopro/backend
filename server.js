@@ -100,7 +100,7 @@ app.post('/loginForm', (req, res, next) => {
                         // User information is in database
                         console.log('retrieved child_name from db', child_name);
                         res.render('chatBot',{
-                            greeting: `Hello ${child_name}`
+                            greeting: `Hello ${child_name}!`
                         });
                     }else{
                         console.log('passwords do not match retype the password correctly')
