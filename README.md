@@ -43,9 +43,9 @@ End with an example of getting some data out of the system or using it for a lit
 ## Built With
 
 * [NodeJS](https://nodejs.org/) - backend enviroment
-* Express.js - webapplication framework for node.js
-* MySQL - relational database
-* HTML, CSS/Bootstrap, JS, jQuery
+* [Express.js](https://expressjs.com/) - web framework for node.js
+* [MySQL](https://www.mysql.com/) - world's most popular open source relational database
+* [HTML, CSS/Bootstrap, JS, jQuery](https://www.w3schools.com/) 
 
 ## Authors
 
